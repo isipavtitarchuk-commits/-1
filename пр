@@ -1,0 +1,144 @@
+def calculator():
+    print("Выберите тип операции:")
+    print("1. Арифметические операторы")
+    print("2. Операторы сравнения")
+    print("3. Логические операторы")
+    print("4. Побитовые операторы")
+    print("5. Операторы принадлежности")
+    print("6. Операторы тождественности")
+    
+    choice = input("Введите номер (1-6): ")
+
+    if choice == "1":
+        print("Выберите арифметическую операцию: +, -, *, /, //, %, **")
+        op = input("Введите оператор: ")
+        a = float(input("Введите первое число: "))
+        b = float(input("Введите второе число: "))
+        
+        if op == "+":
+            print(f"Результат: {a + b}")
+        elif op == "-":
+            print(f"Результат: {a - b}")
+        elif op == "*":
+            print(f"Результат: {a * b}")
+        elif op == "/":
+            if b != 0:
+                print(f"Результат: {a / b}")
+            else:
+                print("Ошибка: деление на ноль!")
+        elif op == "//":
+            if b != 0:
+                print(f"Результат: {a // b}")
+            else:
+                print("Ошибка: деление на ноль!")
+        elif op == "%":
+            if b != 0:
+                print(f"Результат: {a % b}")
+            else:
+                print("Ошибка: деление на ноль!")
+        elif op == "**":
+            print(f"Результат: {a ** b}")
+        else:
+            print("Неверный оператор!")
+    
+    elif choice == "2":
+        print("Выберите оператор сравнения: ==, !=, >, <, >=, <=")
+        op = input("Введите оператор: ")
+        a = float(input("Введите первое число: "))
+        b = float(input("Введите второе число: "))
+        
+        if op == "==":
+            print(f"Результат: {a == b}")
+        elif op == "!=":
+            print(f"Результат: {a != b}")
+        elif op == ">":
+            print(f"Результат: {a > b}")
+        elif op == "<":
+            print(f"Результат: {a < b}")
+        elif op == ">=":
+            print(f"Результат: {a >= b}")
+        elif op == "<=":
+            print(f"Результат: {a <= b}")
+        else:
+            print("Неверный оператор!")
+    
+    elif choice == "3":
+        print("Выберите логическую операцию: and, or, not")
+        op = input("Введите оператор: ")
+        if op == "not":
+            a = input("Введите значение (True/False): ").capitalize()
+            if a == "True" or a == "False":
+                a = eval(a)
+                print(f"Результат: {not a}")
+            else:
+                print("Неверное значение!")
+        else:
+            a = input("Введите первое значение (True/False): ").capitalize()
+            b = input("Введите второе значение (True/False): ").capitalize()
+            if a in ["True", "False"] and b in ["True", "False"]:
+                a, b = eval(a), eval(b)
+                if op == "and":
+                    print(f"Результат: {a and b}")
+                elif op == "or":
+                    print(f"Результат: {a or b}")
+                else:
+                    print("Неверный оператор!")
+            else:
+                print("Неверные значения!")
+    
+    elif choice == "4":
+        print("Выберите побитовую операцию: &, |, ^, ~, <<, >>")
+        op = input("Введите оператор: ")
+        if op == "~":
+            a = int(input("Введите число: "))
+            print(f"Результат: {~a}")
+        else:
+            a = int(input("Введите первое число: "))
+            b = int(input("Введите второе число: "))
+            if op == "&":
+                print(f"Результат: {a & b}")
+            elif op == "|":
+                print(f"Результат: {a | b}")
+            elif op == "^":
+                print(f"Результат: {a ^ b}")
+            elif op == "<<":
+                print(f"Результат: {a << b}")
+            elif op == ">>":
+                print(f"Результат: {a >> b}")
+            else:
+                print("Неверный оператор!")
+    elif choice == "5":
+        print("Выберите оператор принадлежности: in, not in")
+        op = input("Введите оператор: ")
+        element = input("Введите элемент для проверки: ")
+        sequence = input("Введите последовательность (через запятую, без пробелов, например: 1,2,3): ").split(",")
+        
+        if op == "in":
+            print(f"Результат: {element in sequence}")
+        elif op == "not in":
+            print(f"Результат: {element not in sequence}")
+        else:
+            print("Неверный оператор!")
+    
+    elif choice == "6":
+        print("Выберите оператор тождественности: is, is not")
+        op = input("Введите оператор: ")
+        a = input("Введите первое значение (число, строка или None): ")
+        b = input("Введите второе значение (число, строка или None): ")
+        
+        try:
+            a = eval(a) if a != "None" else None
+            b = eval(b) if b != "None" else None
+            if op == "is":
+                print(f"Результат: {a is b}")
+            elif op == "is not":
+                print(f"Результат: {a is not b}")
+            else:
+                print("Неверный оператор!")
+        except:
+            print("Неверные значения!")
+    
+    else:
+        print("Неверный выбор операции!")
+
+calculator()
